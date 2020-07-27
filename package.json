@@ -1,25 +1,54 @@
 {
-  "name": "watch-loader-bug",
+  "name": "graph",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-	"dev": "webpack-dev-server --env.development"
+    "dev": "webpack-cli --env.development",
+    "build": "webpack --env.production",
+    "start": "webpack --env.development --watch",
+    "lint:js": "eslint --quiet --ext .ts,.tsx .",
+    "lint:css": "stylelint \"src/**/*.(css|vue)\"",
+    "lint": "npm run lint:js && npm run lint:css",
+    "test": "jest",
+    "generate:api": "node ./createApiDefinition.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vankop/watch-loader-bug.git"
+    "url": "git@gitlab.ozon.ru:ikopeykin/graph.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vankop/watch-loader-bug/issues"
-  },
-  "homepage": "https://github.com/vankop/watch-loader-bug#readme",
   "devDependencies": {
-    "loader-utils": "^2.0.0",
-    "webpack": "^5.0.0-beta.17",
-    "webpack-cli": "^3.3.11",
+    "@babel/core": "^7.10.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.0",
+    "@babel/plugin-proposal-decorators": "^7.10.0",
+    "@babel/preset-env": "^7.10.0",
+    "@babel/preset-typescript": "^7.10.0",
+    "@types/d3": "^5.7.2",
+    "@types/jest": "^24.9.0",
+    "@vue/babel-preset-jsx": "^1.1.2",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "eslint": "^6.7.2",
+    "glyph-size-loader": "^0.2.1",
+    "html-webpack-plugin": "^4.3.0",
+    "jest": "^24.9.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "nodemon": "^2.0.1",
+    "stylelint": "^13.0.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "typescript": "^3.9.0",
+    "vue-loader": "^15.9.0",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^5.0.0-beta.22",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
-  }
+  },
+  "dependencies": {
+    "vue": "^2.6.11"
+  },
+  "browserslist": [
+    "last 5 Chrome versions"
+  ]
 }
